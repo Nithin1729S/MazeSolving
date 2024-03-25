@@ -1,28 +1,9 @@
-# %%
+
 import numpy as np
 from graphics import *
 import tkinter as tk
 import time
-# %%
 
-# R, C = 5, 7
-# # m = [['S', '.', '.', '#', '.', '.', '.'],
-# #      ['.', '#', '.', '.', '.', '#', '.'],
-# #      ['.', '#', '.', '#', '.', '.', '#'],
-# #      ['.', '.', '#', '.', '#', '.', '.'],
-# #      ['#', '.', '#', 'E', '.', '.', '#']]
-
-# m = [['S', '.', '.', '#', '.', '.', '.'],
-#      ['.', '#', '.', '.', '.', '#', '.'],
-#      ['.', '-', '.', '#', '.', '.', '#'],
-#      ['.', '#', '#', '.', '#', '.', '.'],
-#      ['#', '.', '#', 'E', '.', '.', '#']]
-
-# R,C=3,3;
-
-# m=[['S', '#', '-'], ['-', '#', '-'], ['-', '-', 'E']]
-# print(m)
-# %%
 
 class MazeGenerator:
     def __init__(self, root):
@@ -108,10 +89,7 @@ class MazeGenerator:
     
 root = tk.Tk()
 generator = MazeGenerator(root)
-print("Hi")
-
 root.mainloop()
-print("Hi3")
 m= generator.get_maze()
 R=len(m)
 C=len(m[0])
@@ -132,35 +110,26 @@ class queue:
         return len(self.queue)
 
 
-# %%
+
 sr, sc = 0, 0
 s = (sr, sc)
 e = (0,0)
 rq, cq = queue(), queue()
 
-# %%
 move_count = 0
 nodes_left_in_layer = 1
 nodes_in_next_layer = 0
-# %%
+
 reach_end = False
-# %%
-# visited = np.zeros((5, 7))
-# # prev = np.empty((5, 7))
-# # prev.fill(0)
-# prev = [[0, 0, 0, 0, 0, 0, 0],
-#         [0, 0, 0, 0, 0, 0, 0],
-#         [0, 0, 0, 0, 0, 0, 0],
-#         [0, 0, 0, 0, 0, 0, 0],
-#         [0, 0, 0, 0, 0, 0, 0]]
+
 
 visited = np.zeros((R, C))
 prev = np.empty((R, C), dtype=object)
-# %%
+
 dr = [-1, +1, 0, 0]
 dc = [0, 0, +1, -1]
 
-#%%
+
 def rectangle(rr,cc):
     rr *=100
     cc *=100
@@ -193,14 +162,11 @@ class agent:
         self.cc= mc
         self.cr= mr
 
-# %%
+
 def draw_grid(R,C):
     for i in range(R):
         for j in range(C):
             rectangle(i,j)
-
-
-#%%
 
 
 def explore_neighbours(r, c):
@@ -227,8 +193,6 @@ def explore_neighbours(r, c):
         prev[rr][cc] = (r, c)
         nodes_in_next_layer += 1
 
-# %%
-
 
 def solve():
     global reach_end, e,move_count, nodes_left_in_layer, nodes_in_next_layer
@@ -254,9 +218,6 @@ def solve():
         return move_count
     return -1
 
-# %%
-
-
 def reconstructPath(prev):
     global e, s
     path = []
@@ -264,13 +225,12 @@ def reconstructPath(prev):
     while(at != s):
         path.append(at)
         at = prev[at[0]][at[1]]
-    path.append(s)  # Append the starting position as well
+    path.append(s)  
     path.reverse()
 
     return path
     
-# %%
-print("Hi")
+
 win = GraphWin("My Grid", 1000, 600)
 draw_grid(R,C)
 text(sc,sr,"S")
@@ -283,5 +243,5 @@ for i in path_0:
     line = Line(Point(agent_0.cc+100,agent_0.cr+100),Point((i[1])*100,(i[0])*100))
     line.draw(win)
     time.sleep(1)
-win.getMouse() # Pause to view result
+win.getMouse() 
 win.close()
