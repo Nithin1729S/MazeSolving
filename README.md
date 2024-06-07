@@ -1,5 +1,11 @@
 # Path planning using BFS
 
+## Demo
+
+https://github.com/Nithin1729S/MazeSolving/assets/78496667/66543451-4356-4bfd-8c4d-763d7384abf9
+
+
+
 ### What is the Application?
 
 Our application for the project is a path planning algorithm. 
