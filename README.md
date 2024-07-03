@@ -6,6 +6,8 @@ https://github.com/Nithin1729S/MazeSolving/assets/78496667/66543451-4356-4bfd-8c
 
 
 
+
+[Watch Demo on youtube](https://youtu.be/r2uFEnX93R4)
 ### What is the Application?
 
 Our application for the project is a path planning algorithm. 
