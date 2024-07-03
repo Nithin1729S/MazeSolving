@@ -85,4 +85,15 @@ Path planning algorithms are used by mobile robots, unmanned aerial vehicles, an
 
 We can apply this algorithm to real-life applications like path planning for autonomous vehicles, robot path planning, etc., and get the desired output.
 
+## Setup and Installation
 
+1. **Clone the Repository**:
+    ```bash
+    https://github.com/Nithin1729S/AniTalk.git
+    cd AniTalk
+    ```
+
+2. **Run the application**:
+    ```bash
+    python path_planning_implementation.py
+    ```
